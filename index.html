@@ -3,24 +3,29 @@
 
 <head>
   <link rel="stylesheet" href="style.css" />
- <!--  <script type="text/javascript" src="script.js"></script> -->
+  <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 <h1>Geolocation</h1>
-<p>Click the button to get your coordinates.</p>
 
 <button id="btn" onclick="getLocation()">Click Me</button>
 
 <p id="demo"></p>
 
+<p> Shows device orientation if using a smartphone</p>
+
         <dl>
-            <dt>Current Orientation</dt>
+            <dt>First Orientation</dt>
             <dt id="first">?</dt>
+            
+            <dt>Second Orientation</dt>
+            <dt id="second">?</dt>
         </dl>
-        <script src="iOS-orientation-demo.js"></script>
+
+</body>
 
 <script>
-var x = document.getElementById("demo");
+  var x = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -51,51 +56,5 @@ function showError(error) {
       break;
   }
 }
-
-var numOrientationChanges = 1,
-    lastOrientation,
-    startTime = + new Date(),
-    timer;
-                    
-function readDeviceOrientation() {
-
-    var orientationLabel,
-      curTime = + new Date() - startTime;
-                    
-    if (Math.abs(window.orientation) === 90) {
-        // Landscape
-        orientationLabel = "LANDSCAPE " + window.orientation;
-    } else {
-      // Portrait
-      orientationLabel = "PORTRAIT " + window.orientation;
-    }
-    
-    if (lastOrientation !== window.orientation) {
-        
-        if (numOrientationChanges === 1) {
-            document.getElementById("first").innerHTML = 
-                orientationLabel + " (" + curTime + " ms)";
-        } else if (numOrientationChanges === 2) {
-            document.getElementById("first").innerHTML = 
-                orientationLabel + " (" + curTime + " ms)";
-            clearInterval(timer);
-        }
-        lastOrientation = window.orientation;
-        numOrientationChanges += 2;
-    }
-}
-
-window.onorientationchange = readDeviceOrientation;
-
-window.onload = function () {
-  readDeviceOrientation();
-  document.getElementById("onLoad").innerHTML = 
-    (+ new Date() - startTime) + " ms";
-};
-
-readDeviceOrientation();
-timer = setInterval(readDeviceOrientation, 1/60);
 </script>
-
-</body>
 </html>

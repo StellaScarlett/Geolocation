@@ -22,3 +22,7 @@ border-radius: 5px;
 background-color: hsl(216, 100%, 90%);
 color: #FEF3F3;
 }
+
+#first, #second{
+	 color: azure;
+}
