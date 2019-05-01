@@ -9,19 +9,13 @@
 <h1>Geolocation</h1>
 <p>Click the button to get your coordinates.</p>
 
-<button id="btn" onclick="getLocation()">Try It</button>
+<button id="btn" onclick="getLocation()">Click Me</button>
 
 <p id="demo"></p>
 
         <dl>
-            <dt>First Orientation</dt>
+            <dt>Current Orientation</dt>
             <dt id="first">?</dt>
-            
-            <dt>Second Orientation</dt>
-            <dt id="second">?</dt>
-            
-            <dt>Document Load Time</dt>
-            <dt id="loadTime">?</dt>
         </dl>
         <script src="iOS-orientation-demo.js"></script>
 
@@ -82,12 +76,12 @@ function readDeviceOrientation() {
             document.getElementById("first").innerHTML = 
                 orientationLabel + " (" + curTime + " ms)";
         } else if (numOrientationChanges === 1) {
-            document.getElementById("second").innerHTML = 
+            document.getElementById("first").innerHTML = 
                 orientationLabel + " (" + curTime + " ms)";
             clearInterval(timer);
         }
         lastOrientation = window.orientation;
-        numOrientationChanges += 1;
+        numOrientationChanges += 2;
     }
 }
 
