@@ -1,0 +1,24 @@
+h1{
+	font: calibri;
+}
+
+body{
+	background: violet;
+	text-align: center;
+}
+
+#demo{
+ color: azure;
+}
+
+#btn:hover{
+background-color: hsla(198, 80%, 60%, 0.6);
+color: #FEF3F3;
+border: 3px solid #FEF3F3;
+border-radius: 5px;
+}
+
+#btn:active{
+background-color: hsl(216, 100%, 90%);
+color: #FEF3F3;
+}
