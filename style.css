@@ -23,6 +23,6 @@ background-color: hsl(216, 100%, 90%);
 color: #FEF3F3;
 }
 
-#first, #second{
+#first, #second, #loadTime{
 	 color: azure;
 }
