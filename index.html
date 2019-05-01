@@ -52,7 +52,7 @@ function showError(error) {
   }
 }
 
-var numOrientationChanges = 0,
+var numOrientationChanges = 1,
     lastOrientation,
     startTime = + new Date(),
     timer;
@@ -72,10 +72,10 @@ function readDeviceOrientation() {
     
     if (lastOrientation !== window.orientation) {
         
-        if (numOrientationChanges === 0) {
+        if (numOrientationChanges === 1) {
             document.getElementById("first").innerHTML = 
                 orientationLabel + " (" + curTime + " ms)";
-        } else if (numOrientationChanges === 1) {
+        } else if (numOrientationChanges === 2) {
             document.getElementById("first").innerHTML = 
                 orientationLabel + " (" + curTime + " ms)";
             clearInterval(timer);
